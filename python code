@@ -1,0 +1,87 @@
+import random
+
+
+def user_input() :
+"""
+Player guess the number using this function
+"""
+    
+    while True :
+        try :
+            guess = int(input("guess that number between 1-100 :"))
+            
+            return guess 
+            break
+            
+        except ValueError :
+            print("Oops!   no decimals!  Try again...")
+            
+            
+def replay():
+    #asking users if they would like to play again
+    
+    again = input("Would you like to try again? Y/N? :").upper()
+    
+    
+    return again == 'Y'
+   
+   
+   
+   
+def random_num():
+    
+    return random.randint(1,100)
+    
+    
+    
+ #setting up the game 
+ 
+ 
+print("WELCOME TO GUESS THAT NUMBER")
+print("Guess between 1-100")
+
+while True : 
+
+    
+    play_game = input("Are you ready to play the guess that number? Y/N? :").upper()
+    
+    if play_game == 'Y' :
+        game_on = True 
+        
+    else :
+        game_on = False 
+        
+        
+        
+    while game_on :
+        x = random_num()
+        guess = user_input()
+        
+        if guess == x :
+            print(f"you guessed {guess} , the number chosen was {x}")
+            print("YOU WON!")
+            game_on = False
+            
+        elif guess > x :
+            print(f"you guessed {guess} , the number chosen was {x}")
+            
+            print("Too high")
+            
+            game_on = False
+             
+            
+        elif x > guess :
+            print(f"you guessed {guess} , the number chosen was {x}")
+            
+            print("Too Low")
+            
+            game_on = False
+             
+            
+            
+            
+    if not replay():
+        break
+            
+ 
+            
